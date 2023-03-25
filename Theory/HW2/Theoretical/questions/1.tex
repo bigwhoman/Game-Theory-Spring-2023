@@ -1,0 +1,77 @@
+\smalltitle{سوال 1}
+\begin{enumerate}
+    \item \phantom{text}\\
+    \begin{latin}
+        \begin{center}
+            
+\begin{equation*}
+            \begin{matrix}
+                    & x_2 & y_2 \\
+                   x_1 & \circs{3},\circs{7} & 6,6 \\
+                   y_1 & 2,2 & \circs{7},\circs{3} 
+                \end{matrix}
+            \end{equation*}
+       \end{center}
+       (x1,x2) and (y1,y2) are the nash equilibriums.
+    \end{latin}
+    \item \phantom{text}\\
+    \begin{latin}
+        First we see that for player 2, A is a strictly dominated strategy so we remove it.
+        \begin{center}
+\begin{equation*}
+            \begin{matrix}
+                  &  & q & 1-q \\
+                  &  & B & C \\
+                 p_1 & X & -1,0 & 4,0 \\
+                 p_2 & Y & 2,2 & 3,1\\
+                 1-p_1-p_2 & Z & 2,4 & 3,3
+                \end{matrix}
+            \end{equation*}
+       \end{center}
+    Now we classify it.\\
+    $Q = (q,1-q) , P = (p_1,p_2,1-p_1-p_2)$\\
+    $E(U_1(X,Q)) = -1 * q + 4 * (1-q) = 4 - 5q$\\
+    $E(U_1(Y,Q)) = 2 * q + 3 * (1-q) = 3 - q$\\
+    $E(U_1(Z,Q)) = 2 * q + 3 * (1-q) = 3 - q$\\
+    Now if we solve the equations above we would see that : \\
+    $ \begin{cases}
+        q > \frac{1}{4} & Y,Z \rightarrow \text{X is dominated}\\
+        q \leq \frac{1}{4} & X \rightarrow \text{Y,Z are dominated}
+    \end{cases} $
+    \\
+    So now we would put the question in two ways : \\
+    Case 1 : q > 1/4 \\
+    \begin{center}
+        \begin{equation*}
+                    \begin{matrix}
+                          &  & q & 1-q \\
+                          &  & B & C \\
+                         p_2 & Y & 2,2 & 3,1\\
+                         1-p_2 & Z & 2,4 & 3,3
+                        \end{matrix} \Longrightarrow \text{C is dominated by B so q = 1} \Longrightarrow
+                        \begin{matrix}
+                            &  & 1\\
+                            &  & B\\
+                           p_2 & Y & 2,2 \\
+                           1-p_2 & Z & 2,4
+                          \end{matrix} \Rightarrow Mixed = ((p_2Y,(1-p2)Z),(B))
+                    \end{equation*}
+                   
+               \end{center}
+               Case 2 : q $\leq$ 1/4 \\
+               \begin{center}
+                \begin{equation*}
+                            \begin{matrix}
+                                  &  & q & 1-q \\
+                                  &  & B & C \\
+                                 p_1 & X & -1,0 & 4,0 \\
+                                \end{matrix} \Longrightarrow Mixed = ((X),(qB,(1-q)C)) , q \leq \frac{1}{4}
+                            \end{equation*}
+                       \end{center}
+    \end{latin}
+\end{enumerate}
+
+
+
+
+
