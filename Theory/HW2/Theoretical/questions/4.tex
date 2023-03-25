@@ -1,20 +1,56 @@
 \smalltitle{سوال 4}
-\begin{latin}
-        If we choose a profile in which a = (e,e,e,...), then we have nash equillibrium.\\
-        The proof is that $u_i = e$ and by mathamatical proof we show that for each player, utility of derivation of this profile 
-        is less that the original.\\
-        We assume that there exists one player j that chooses $e^{'}$ : \\
-        $\begin{cases}
-            e^{'} < e & \rightarrow min_j e_j = e^{'} \rightarrow u_j = 2e ^{'} - e ^{'} < e \text{   }\otimes\\
-            e^{'} > e & \rightarrow min_j e_j = e \rightarrow u_j = 2e - e^{'} < 2e - e \text{   } \otimes
-        \end{cases}$
-        \\
-        So we see that no other player would want to change the strategy, so a = (e,e,e,...) is a nash equillibrium.
-        \\
-        Now we need to show that no other nash equillibrium points exist in this game.\\
-        We assume that there is a equillibrium $a = (e,e,e^{'},e,...)$ which at least one player has chosen a differenct strategy $e^{'}$ and the profile is also a nash equillibrium.\\
-        $\begin{cases}
-            e^{'} < e & \rightarrow min_j e_j = e^{'} \rightarrow u_j = 2e ^{'} - e ^{'} < e \text{   } \\
-            e^{'} > e & \rightarrow min_j e_j = e \rightarrow u_j = 2e - e^{'} < 2e - e \text{   } 
-        \end{cases}  \Rightarrow $ player with strategy $e^{'}$ will choose strategy e to get better utility hence the original point $a = (e,e,e^{'},e,...)$ was not a nash equillibrium.
-\end{latin}
+        \begin{enumerate}
+            \item \phantom{text}
+            \begin{latin}
+                \begin{center}
+                    \begin{equation*}
+                                \begin{matrix}
+                                      & & \text{P2}                  \\ \\ 
+                                      & & 1 & 2 & 3 & ... & n            \\
+                                    & 1 & 0,0 & 1,2 & ... & & 1,n  & p_1         \\
+                                    \text{P1} \hspace{1mm}& 2 & 2,1 & 0,0 & ... &  & \vdots & p_2   \\
+                                    & 3 & 3,1 & 3,2 & ... & & \vdots & \vdots\\
+                                    & \vdots \\
+                                    & n & n,1 & n,2 & ... & ... & 0,0  & p_n \\
+                                    &  & q_1 & q_2 & ... & ... & q_n 
+                                    \end{matrix}
+                                    \hspace{1mm}
+                                     \xrightarrow{n = 5} 
+                                    \hspace{1mm}
+                                     \begin{matrix}
+                                        & & \text{}                  \\ \\ 
+                                        & & 1 & 2 & 3 & 4 & 5            \\
+                                      & 1 & 0,0 & 1,2 & 1,3 & 1,4 & 1,5  & p_1         \\
+                                      \text{} \hspace{1mm}& 2 & 2,1 & 0,0 & 2,3 & 2,4 & 2,5 & p_2   \\
+                                      & 3 & 3,1 & 3,2 & 0,0 & 3,4 & 3,5 & p_3\\
+                                      & 4 & 4,1 & 4,2 & 4,3 & 0,0 & 4,5 & p_4\\
+                                      & 5 & 5,1 & 5,2 & 5,3 & 5,4 & 0,0  & p_5 \\
+                                      &  & q_1 & q_2 & q_3 & q_4 & q_5 
+                                      \end{matrix}
+                                \end{equation*}
+                           \end{center}
+                We get a little help from part 2 of this question, as we know and prove in part 2, 
+                for number in range 1..C, the formula is : $C = \lfloor n - \frac{\sqrt[]{8n+1}-1}{2} \rfloor \xrightarrow{n=5} C = 2$ \\
+                We know that strateges 1 and 2 are strictly dominated by mixed strategies of (3,4,5) so : 
+                \begin{center}
+                    \begin{equation*}
+                                     \begin{matrix}
+                                        & & 3 & 4 & 5            \\
+                                      & 3 & 0,0 & 3,4 & 3,5 & p_3\\
+                                      & 4 & 4,3 & 0,0 & 4,5 & p_4\\
+                                      & 5 & 5,3 & 5,4 & 0,0  & p_5 \\
+                                      &   & q_3 & q_4 & q_5 
+                                      \end{matrix}
+                                \end{equation*}
+                               
+                           \end{center}
+                           Now we right the equations and see if any of the strategies are strictly dominated by \\
+                           $E(U_1(3,Q)) = 0 * q_3 + 3 * q_4 + 3 * q_5 = 3 * (q_4 + q_5)$\\
+                           $E(U_1(4,Q)) = 4 * q_3 + 0 * q_4 + 4 * q_5 = 4 * (q_3 + q_5) $\\
+                           $E(U_1(5,Q)) = 5 * q_3 + 5 * q_4 + 0 * q_5 = 5 * (q_3 + q_4)$\\
+                           $\hspace{4mm} \xrightarrow[E(U_1(3,Q)) = E(U_1(4,Q))=E(U_1(5,Q))]{q_3+q_4+q_5 = 1} q_3 = \frac{7}{47},q_4=\frac{17}{47},q_5=\frac{23}{47}$ \\
+                          \\ We know that the game is symmetric so $q_3 = p_3,q_4=p_4,q_5=p_5 \Rightarrow
+                           $\begin{center}$ Mixed Strategy = ((\frac{7}{47},\frac{17}{47},\frac{23}{47})\times\text{(3,4,5)}),(\frac{7}{47},\frac{17}{47},\frac{23}{47})\times\text{(3,4,5)}))$ \end{center}
+            \end{latin}
+            \item 
+        \end{enumerate}

@@ -2,18 +2,35 @@
 \begin{enumerate}
     \item \phantom{text}\\
     \begin{latin}
+        We should see the strategies and their outcomes.\\
+        If probability $Player_1 = P,Player_2 = Q, Player_3 = R \rightarrow$ \\ 
+        $E(U_1(T,(q_1,q_2),(r_1,r_2))) = 3 * q_1 * r_1 + 1 * q_2 * r_1 + 0 * q_1 * r_2 - 4 * q_2 * r_2$\\
+        $E(U_1(B,(q_1,q_2),(r_1,r_2))) = -4 * q_1 * r_1 + 0 * q_2 * r_1 + 1 * q_1 * r_2 + 2 * q_2 * r_2$\\
+        $E(U_2((p_1,p_2),L,(r_1,r_2))) = 3 * p_1 * r_1 + 1 * p_2 * r_1 + 0 * p_1 * r_2 - 4 * p_2 * r_2$\\
+        $E(U_2((p_1,p_2),R,(r_1,r_2))) = -4 * p_1 * r_1 + 0 * p_2 * r_1 + 1 * p_1 * r_2 + 2 * p_2 * r_2$\\
+        $E(U_3((p_1,p_2),(q_1,q_2),X)) = -2 * p_1 * q_1 + 2 * p_1 * q_2 + 2 * p_2 * q_1 + 0 * p_2 * q_2$\\
+        $E(U_3((p_1,p_2),(q_1,q_2),Y)) = 0 * p_1 * q_1 + 2 * p_1 * q_2 + 2 * p_2 * q_1  -2 * p_2 * q_2$\\ \\
+        Now we know that : \begin{center}
+            $E(U_1(T,...,...)) = E(U_1(B,...,...))$\\
+            $E(U_2(...,L,...)) = E(U_2(...,R,...))$\\
+            $E(U_3(...,...,X)) = E(U_3(...,...,Y))$\\
+
+        \end{center}
+        $3 * q_1*r_1 + q_2 * r_1 - 4 * q_2 * r_2 = -4 * q_1 * r_1 + q_1 * r_2 + 2 * q_2 * r_2 \Rightarrow 7q_1 r_1 + q_2 r_1 - q_1 r_2 - 6q_2 r_2 = 0$ \\  
+        $3 * p_1 * r_1 + 1 * p_2 * r_1 - 4 * p_2 * r_2 = -4 * p_1 * r_1 + 1 * p_1 * r_2 + 2 * p_2 * r_2 \Rightarrow 7p_1 r_1 + p_2 r_1 - p_1 r_2 - 6p_2 r_2 = 0$ \\  
+        $-2 * p_1 * q_1 + 2 * p_1 * q_2 + 2 * p_2 * q_1=  2 * p_1 * q_2 + 2 * p_2 * q_1  -2 * p_2 * q_2 \Rightarrow 2p_2 q_2 - 2p_1 q_1 = 0$ \\  
+        $p_1 + p_2 = 1, q_1 + q_2 = 1 , r_1 + r_2 = 1$\\ \\ 
+        Now we have 6 equations that we need to solve : \\ 
+        We use determinant to solve the equations \\
         \begin{center}
-            
-\begin{equation*}
-            \begin{matrix}
-                    & x_2 & y_2 \\
-                   x_1 & \circs{3},\circs{7} & 6,6 \\
-                   y_1 & 2,2 & \circs{7},\circs{3} 
-                \end{matrix}
-            \end{equation*}
-       \end{center}
-       (x1,x2) and (y1,y2) are the nash equilibriums.
+            $\vdots$ \\
+            \vspace{3mm}
+            $ p_1 = p_2 = \frac{1}{2},q_1 = q_2 = \frac{1}{2},r_1 = \frac{7}{15}, r_2 = \frac{8}{15}$ \\ 
+            \vspace{3mm}
+            $Mixed Strategy = ((\frac{T}{2},\frac{B}{2}),(\frac{L}{2},\frac{R}{2}),(\frac{7X}{15},\frac{8Y}{15}))$
+        \end{center}
     \end{latin}
+    \pagebreak
     \item \phantom{text}\\
     \begin{latin}
         First we see that for player 2, A is a strictly dominated strategy so we remove it.
