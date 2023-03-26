@@ -52,5 +52,58 @@
                           \\ We know that the game is symmetric so $q_3 = p_3,q_4=p_4,q_5=p_5 \Rightarrow
                            $\begin{center}$ Mixed Strategy = ((\frac{7}{47},\frac{17}{47},\frac{23}{47})\times\text{(3,4,5)}),(\frac{7}{47},\frac{17}{47},\frac{23}{47})\times\text{(3,4,5)}))$ \end{center}
             \end{latin}
-            \item 
+            \item \phantom{text}
+            \begin{latin}
+                For this part we assume the matrix below,
+                \begin{center}
+                    \begin{equation*}
+                                \begin{matrix}
+                                      & & \text{P2}                  \\ \\ 
+                                      & & 1 & 2 & 3 & ... & n            \\
+                                    & 1 & 0,0 & 1,2 & ... & & 1,n  & p_1         \\
+                                    \text{P1} \hspace{1mm}& 2 & 2,1 & 0,0 & ... &  & \vdots & p_2   \\
+                                    & 3 & 3,1 & 3,2 & ... & & \vdots & \vdots\\
+                                    & \vdots \\
+                                    & n & n,1 & n,2 & ... & ... & 0,0  & p_n \\
+                                    &  & q_1 & q_2 & ... & ... & q_n 
+                                      \end{matrix}
+                                \end{equation*}
+                           \end{center}
+                           Now lets see, think as if there exists a probability, $p_i$ and $1 \leq i \leq C$ where $p_i > 0$ : 
+                           \begin{center}
+                            \begin{equation*}
+                                        \begin{matrix}
+                                              & & \text{P2}                  \\ \\ 
+                                              & & 1 & 2 & ... & i & ... & n            \\
+                                            & 1 & 0,0 & 1,2 & ... &1,i& ... & 1,n  & p_1         \\
+                                            \text{P1} \hspace{1mm}& 2 & 2,1 & 0,0 & ... &  & \vdots && p_2   \\
+                                            & 3 & 3,1 & 3,2 & ... & & \vdots & &\vdots\\
+                                            & \vdots \\
+                                            & i & i,1&i,2&...&0,0&...& i,n & p_i\\
+                                            & \vdots \\
+                                            & n & n,1 & n,2 & ... & ... & 0,0  && p_n \\
+                                            &  & q_1 & q_2 & ... & ... & q_n 
+                                              \end{matrix}
+                                        \end{equation*}
+                                   \end{center}
+                                For $p_i$ to be more than 0 : \\
+                                $\forall j \in [C+1,n] , j \neq i : E_\text{Mixed}(U_1(j,...)) \leq E_\text{Pure}(U_1(i,...))$\\
+                                $(I)\forall j \in [C+1,n] : (C+1) * p_\text{(C+1)} + ... + n*p_n - j * p_j \leq i$\\ \\
+                                $(II)$We also know that the game is symmetric, thus : \\ 
+                                $E(U_2(C+1,P)) = (C+1)*(p_\text{(C+2)}+p_\text{(C+3)}+...+p_n)$\\
+                                $E(U_2(C+2,P)) = (C+2)*(p_\text{(C+1)}+p_\text{(C+3)}+...+p_n)$\\
+                                $E(U_2(C+3,P)) = (C+3)*(p_\text{(C+1)}+p_\text{(C+2)}+...+p_n)$\\
+                                \vdots \\
+                                $E(U_2(n,P)) = (n)*(p_\text{(C+1)}+p_\text{(C+2)}+...+p_\text{(n-1)})$\\ \\ \\
+                                $E(U_2(C+1,P)) = E(U_2(C+2,P)) = E(U_2(C+3,P)) = ... = E(U_2(n,P))$ \\ 
+                                $p_\text{(C+1)} + p_\text{(C+2)} + ... + p_n = 1$ \\ \\
+                                By solving the equation above, we would see that for all $k,k'$ in range [C+1,n], if $k' < k \Rightarrow p_\text{k'} < p_\text{k}$.\\
+                                Now j could at most be equal to n, so according to $(I) \rightarrow p_{C+1} * (C+1 + C + 2 + ... + n-1) \leq (C+1) * p_{C+1} + ... + (n-1)*p_{n-1} \rightarrow p_{C+1} * (\frac{(n-1-C-1+1)(n-1+C+1)}{2}) \leq i \leq C = \lfloor n - \frac{\sqrt[]{8n+1}-1}{2} \rfloor$\\ \\
+                                Now by simplifing the expression we could see that the above equation is wrong and thus we have a contradiction. \\
+                                So with proof by contradiction we have proven that there does not exist any $p_i$ which $1 \leq i \leq C$ therfore $p_i = 0$ and we could strongly conclude that 
+                                numbers [1,C] will not be played by player 1.\\
+                                The game is symmetric so the same goes for player 2 and thus we know that no player would play numbers [1,C].
+                                
+            \end{latin}
+          
         \end{enumerate}

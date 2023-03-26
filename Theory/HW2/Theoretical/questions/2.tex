@@ -1,14 +1,37 @@
 \smalltitle{سوال 2}
-\\
-\begin{latin}
-    \noindent
-    We could see that for player 2, if a2 >= 1, then the payoff would be 
-    less or equal to a2 = 0, so a2 >= 1 strategies are weakly dominated by a2 = 0 strategy, hence we should cut them off. \\
-    Now that we know that player 2 strategies are limited to only $0 \leq a_2 \leq 1$ , we should find the payoffs : \\ 
-    If player 1 plays $x_1$ , the best possible move for player 2 would be $-\frac{a_1}{2} + \frac{1}{2}$ and if player 2 plays $a_2$,
-    the best possible move for player 1 would be $\frac{a_2}{2}$. \\ 
-    If player 2 starts off with 1, player 1 would choose $\frac{1}{2}$ and if player 1 chooses $\frac{1}{2}$, player 2 would choose $\frac{1}{4}$ and so on ... \\
-    $a_2 = 1 \Rightarrow a_1 = \frac{1}{2} \Rightarrow a_2 = \frac{1}{4} \Rightarrow a_1 = \frac{1}{8} \Rightarrow ...$ \\ 
-    If you get the limit of this equation you will see that $x_1 \rightarrow 0.2 , x_2 \rightarrow 0.4$ 
-\end{latin}
+        \begin{enumerate}
+            \item \phantom{text}
+            \begin{latin}
+                \begin{center}
+                    \begin{equation*}
+                                \begin{matrix}
+                                      & & 1 & 2 & 3 & ...       & n            \\
+                                    & 1 & \omega_{11} - W_1 & \omega_{12} & ... &     & \omega_{1n}  & p_1         \\
+                                    & 2 & \omega_{21} & \omega_{22} - W_2 & ... &      & \vdots & p_2   \\
+                                    & 3 & \omega_{31} & \omega_{32} & ... &      & \vdots & \vdots\\
+                                    & \vdots \\
+                                    & n & \omega_{n1} & \omega_{n2} & ... & ...  & \omega_{nn} - W_n  & p_n \\
+                                    & Min & \omega_{11} - W_1 &  & ... & ...   & q_n 
+                                    \end{matrix}
+                                \end{equation*}
+                           \end{center}
+            We know player 1, plays each node with probability $p_i$ and player 2 plays with probability $p_j$ so the expected payoff of player 1 is 
+            $\omega_{ij} - W_i \times p_j$. \\
+            now we need to find that for each i and j what is the expected payoff : \\
+            $\sum_i{W_i * \sum_j[p_j * (\omega_{ij}-W_i*p_j)]}$ thus the expression is written as $\sum_i{W_i * \sum_j{p_j*\omega_{ij}}-W_i^2*\sum_j(p_j^2)} 
+            \xrightarrow{p_j \leq 1 \rightarrow p_j^2 \leq 1} \leq \sum_i{W_i * \sum_j{p_j * \omega_{ij}}-W_i^2}$\\ \\
+            Now we could simplify the expression and see that : \\
+            $\sum_i{W_i * \sum_j{p_j*\omega_{ij}}-W_i^2} = \sum{i}\sum{j}(p_i * p_j * \omega_ij)$\\
+            so we would conclude that the expected payoff of player 1 is the expected value of edges and the game is 0 value.
+            \end{latin}
+            \item \phantom{text}
+            \begin{latin}
+                  The game is 0 value so there exists an equilibrim that both players payoffs are 0.
+                  Now like the first part, think as if $probability_{p1} = X,probability_{p2} = Y$ \\ 
+                  $E(P1 = x^TAy) \xrightarrow{min_xmax_yx^TAy=0} max_y = 0 \Rightarrow A^Tx \leq 0 ,0 \leq x, 0 \leq y , \sum_i{x_i} = 1,\sum_j{y_j} = 1$\\
+                  Now the above problem is simply an LP with constraints and because that this game is a zero-sum game, the optimal values are the same as first problem.\\
+                  Because we found an optimal point, there exists a solution in which $A^Tx=0 \Rightarrow x^TA = 0 $
 
+            \end{latin}
+          
+        \end{enumerate}
