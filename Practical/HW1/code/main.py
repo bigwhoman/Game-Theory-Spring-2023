@@ -1,5 +1,103 @@
-from scipy.optimize import *
+# Code below copied from Dr.Zarabi's Algorithm Design course
+
+
 import numpy as np
+from math import inf
+
+class LPSolver(object):
+    EPS = 1e-9
+    NEG_INF = -inf
+
+    def __init__(self, A, b, c):
+        self.m = len(b)
+        self.n = len(c)
+        self.N = [0] * (self.n + 1)
+        self.B = [0] * self.m
+        self.D = [[0 for i in range(self.n + 2)] for j in range(self.m + 2)]
+        self.D = np.array(self.D, dtype=np.float64)
+        for i in range(self.m):
+            for j in range(self.n):
+                self.D[i][j] = A[i][j]
+        for i in range(self.m):
+            self.B[i] = self.n + i
+            self.D[i][self.n] = -1
+            self.D[i][self.n + 1] = b[i]
+        for j in range(self.n):
+            self.N[j] = j
+            self.D[self.m][j] = -c[j]
+        self.N[self.n] = -1
+        self.D[self.m + 1][self.n] = 1
+
+    def Pivot(self, r, s):
+        D = self.D
+        B = self.B
+        N = self.N
+        inv = 1.0 / D[r][s]
+        dec_mat = np.matmul(D[:, s:s+1], D[r:r+1, :]) * inv
+        dec_mat[r, :] = 0
+        dec_mat[:, s] = 0
+        self.D -= dec_mat
+        self.D[r, :s] *= inv
+        self.D[r, s+1:] *= inv
+        self.D[:r, s] *= -inv
+        self.D[r+1:, s] *= -inv
+        self.D[r][s] = inv
+        B[r], N[s] = N[s], B[r]
+
+    def Simplex(self, phase):
+        m = self.m
+        n = self.n
+        D = self.D
+        B = self.B
+        N = self.N
+        x = m + 1 if phase == 1 else m
+        while True:
+            s = -1
+            for j in range(n + 1):
+                if phase == 2 and N[j] == -1:
+                    continue
+                if s == -1 or D[x][j] < D[x][s] or D[x][j] == D[x][s] and N[j] < N[s]:
+                    s = j
+            if D[x][s] > -self.EPS:
+                return True
+            r = -1
+            for i in range(m):
+                if D[i][s] < self.EPS:
+                    continue
+                if r == -1 or D[i][n + 1] / D[i][s] < D[r][n + 1] / D[r][s] or (D[i][n + 1] / D[i][s]) == (D[r][n + 1] / D[r][s]) and B[i] < B[r]:
+                    r = i
+            if r == -1:
+                return False
+            self.Pivot(r, s)
+
+    def Solve(self):
+        m = self.m
+        n = self.n
+        D = self.D
+        B = self.B
+        N = self.N
+        r = 0
+        for i in range(1, m):
+            if D[i][n + 1] < D[r][n + 1]:
+                r = i
+        if D[r][n + 1] < -self.EPS:
+            self.Pivot(r, n)
+            if not self.Simplex(1) or D[m + 1][n + 1] < -self.EPS:
+                return self.NEG_INF, None
+            for i in range(m):
+                if B[i] == -1:
+                    s = -1
+                    for j in range(n + 1):
+                        if s == -1 or D[i][j] < D[i][s] or D[i][j] == D[i][s] and N[j] < N[s]:
+                            s = j
+                    self.Pivot(i, s)
+        if not self.Simplex(2):
+            return self.NEG_INF, None
+        x = [0] * self.n
+        for i in range(m):
+            if B[i] < n:
+                x[B[i]] = D[i][n + 1]
+        return D[m][n + 1], x
 
 
 def find_pure_nash(matrix):
@@ -41,13 +139,35 @@ def find_mixed_nash(matrix):
     res = minimize(find_sum, initial_guess, constraints=[linear_constraint], bounds=bounds)
     return res.x
 
+def choop(x):
+    return x[-1]
 
 def mixed_nash(matrix):
-    player_1 = np.array(matrix.copy())
-    n, m = player_1.shape
-    player_2 = np.array(np.tile(np.array(list([100 for i in range(n)])), (n, 1)) - player_1).transpose()
-    print(find_mixed_nash(player_2))
-    print(find_mixed_nash(player_1))
+    matrix = np.array(matrix)
+    A = []
+    b = []
+    matrix = np.transpose(matrix)
+    diag = np.diag([-1] * matrix.shape[0])
+    for i in range(matrix.shape[0]) :
+        t = np.append(np.copy(matrix[i]),[-1],axis=0)
+        t = -t
+        A.append(t)
+        b.append(0)
+        k = np.append(diag[i],[0],axis=0)
+        A.append(k)
+        b.append(0)
+    
+    k = list([1 for i in range(matrix.shape[0])])
+    k.append(0)
+    prob = np.array(k)
+    A.append(prob)
+    b.append(1)
+    A.append(-prob)
+    b.append(-1)
+    c = list([0 for i in range(matrix.shape[0])])
+    c.append(1)
+    s = LPSolver(A, b, c)
+    return s.Solve()[1][0:-1]
 
 
 def remove_dominated(matrix):
@@ -78,19 +198,27 @@ def remove_dominated(matrix):
 
 def find_nash(matrix):
     matrix = np.array(matrix)
-    while True:
-        mm = matrix.copy()
-        matrix = remove_dominated(matrix)
-        n, m = matrix.shape
-        player_2 = np.array(np.tile(np.array(list([100 for i in range(n)])), (n, 1)) - matrix).transpose()
-        matrix = remove_dominated(player_2)
-        n, m = matrix.shape
-        matrix = np.array(np.tile(np.array(list([100 for i in range(n)])), (n, 1)) - matrix).transpose()
-        if matrix.all() == mm.all():
-            break
-    print(matrix)
-    # print(find_pure_nash(matrix))
-    mixed_nash(matrix)
+    # while True:
+    #     mm = matrix.copy()
+    #     matrix = remove_dominated(matrix)
+    #     n, m = matrix.shape
+    #     player_2 = np.array(np.tile(np.array(list([100 for i in range(n)])), (n, 1)) - matrix).transpose()
+    #     matrix = remove_dominated(player_2)
+    #     n, m = matrix.shape
+    #     matrix = np.array(np.tile(np.array(list([100 for i in range(n)])), (n, 1)) - matrix).transpose()
+    #     if matrix.all() == mm.all():
+    #         break
+    # print(matrix)
+    # pure = find_pure_nash(matrix)
+    # print(pure[0])
+    # if pure[0] > 0:
+    #     print(*pure[1]) 
+    pp = 100 - matrix
+    pp = np.transpose(pp)
+    p1 = mixed_nash(matrix)
+    p2 = mixed_nash(pp)
+    print(*p1)
+    print(*p2)
 
 
 def get_input():
@@ -103,12 +231,15 @@ def get_input():
 
 def test():
     matrixes = [
-        np.array([[1, 5],
-                  [2, 4]
-                  ]),
-        np.array([[90, 20],
-                  [30, 60]
-                  ])
+        # np.array([[1, 5],
+        #           [2, 4]
+        #           ]),
+        # np.array([[90, 20],
+        #           [30, 60]
+        #           ]),
+        # np.array([
+            
+        # ])
     ]
     for matrix in matrixes:
         find_nash(matrix)
