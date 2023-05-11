@@ -1,0 +1,84 @@
+\smalltitle{سوال 3}
+\begin{enumerate}
+\item \phantom{text}
+\begin{latin}
+  We know that player 2 would either choose (2,5) or (x,2) depending on player 1's choice, so: \\
+  $
+    \begin{cases}
+      x < 2  \rightarrow 
+       & P1 : A,P2 : C
+      \\[1ex]
+      x > 2  \rightarrow 
+       & P1 : B, P2 : F
+    \end{cases}
+  $
+\end{latin}
+\item \phantom{text}
+\begin{latin}
+We want to turn the game into a normal form game : \\\\
+\begin{tabular}{l | l | c | r | l | }
+    & CE  & CF  & DE  & DF  \\
+  \hline
+  A & 2,5 & 2,5 & 1,0 & 1,0 \\
+  \hline
+  B & 1,0 & x,2 & 1,0 & x,2 \\
+  \hline
+\end{tabular}
+$\xrightarrow[]{x=3}$
+  \begin{tabular}{l | l | c | r | l | }
+      & CE  & CF  & DE  & DF  \\
+    \hline
+    A & 2,5 & 2,5 & 1,0 & 1,0 \\
+    \hline
+    B & 1,0 & 3,2 & 1,0 & 3,2 \\
+    \hline
+  \end{tabular}
+  \\\\
+  Remove strictly dominated strategies :
+   \\\\
+  \begin{tabular}{l | l | c | r | l | }
+    & CE  & CF  & DE  & DF  \\
+  \hline
+  A & 2,5 & 2,5 & 1,0 & 1,0 \\
+  \hline
+  B & 1,0 & 3,2 & 1,0 & 3,2 \\
+  \hline
+\end{tabular}
+$\rightarrow$
+\begin{tabular}{l | l | c | r | l | }
+  & CE  & CF   & DF  \\
+\hline
+A & 2,5 & 2,5 & 1,0 \\
+\hline
+B & 1,0 & 3,2 & 3,2 \\
+\hline
+\end{tabular}
+\\\\
+We could show that no strategies are dominated by a mixed strategy.
+\\\\
+$E(U(A,\{P_{CE},P_{CF},P_{DF}\})) = 2*P_{CE}+2*P_{CF}+P_{DF}$ \\\\
+$E(U(B,\{P_{CE},P_{CF},P_{DF}\})) = 1*P_{CE}+3*P_{CF}+3P_{DF}$ \\\\
+$E(U(\{P_{A},P_{B}\},CE)) = 5 * P_{A} + 0 * P_{B}$ \\\\
+$E(U(\{P_{A},P_{B}\},CF)) = 5 * P_{A} + 2 * P_{B}$ \\\\
+$E(U(\{P_{A},P_{B}\},DF)) = 0 * P_{A} + 2 * P_{B}$ \\\\
+$2*P_{CE}+2*P_{CF}+P_{DF} = 1*P_{CE}+3*P_{CF}+3P_{DF}\rightarrow \\ P_{CE} - P_{CF} - 2P_{DF}=0 \\ P_{CE}+P_{CF}+P_{DF}=1$\\\\
+$5 * P_{A} = 2 * P_{B} = 5 * P_{A} + 2 * P_{B}$\\\\
+We could see the equation above is not right, hence we should remove CE and DF due to being weakly dominated. \\\\
+\begin{tabular}{l | l | c | r | l | }
+  & CF  \\
+\hline
+A & 2,5 \\
+\hline
+B & 3,2 \\
+\hline
+\end{tabular}
+$ \rightarrow $
+\begin{tabular}{l | l | c | r | l | }
+  & CF  \\
+\hline
+B & 3,2 \\
+\hline
+\end{tabular}
+
+\end{latin}
+\end{enumerate}

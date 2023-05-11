@@ -1,0 +1,32 @@
+\smalltitle{سوال 7}
+\noindent
+\begin{enumerate}
+    \item \phantom{text}
+
+          \begin{latin}
+              First we remove dominated strategies : \\
+              for player 1, C is definatly dominated by D and by itterative domination, D would also be the dominating strategy for player 2.\\
+              So the only strategy which is also the nash equilibrium is (D,D).\\
+
+
+          \end{latin}
+    \item \phantom{text}
+          \begin{latin}
+            Think of it as this way, they both have played for k-1 rounds using (C,C) as strategy, now player 1 chooses to deviate, and for n rounds after that would get 
+            1 as reward. \\ Lets write the utility.
+            Max utility for player 1 = $U_{P1}$ and $U'_{P1}$ = max utility after k+n+1 steps\\\\
+            In case of deviation : $U_{P1} = \sum_{i=1}^{k-1}\delta^{i-1}*4+6*\delta^{k}+\sum_{i=k+1}^{k+n+1}\delta^i + U'_{P1}$\\\\
+            In case of no deviation : $U_{P1} = \sum_{i=1}^{k-1}\delta^{i-1}*4+4*\delta^{k}+4*\sum_{i=k+1}^{k+n+1}\delta^i + U'_{P1}$\\\\
+            For the player to deviate, case of deviation should have more payoff than no deviation.\\
+            $
+            \sum_{i=1}^{k-1}\delta^{i-1}*4+6*\delta^{k}+\sum_{i=k+1}^{k+n+1}\delta^i + U'_{P1} > \sum_{i=1}^{k-1}\delta^{i-1}*4+4*\delta^{k}+4*\sum_{i=k+1}^{k+n+1}\delta^i + U'_{P1} \rightarrow 
+            \\
+            2\delta^k > 3 * \sum_{i=k+1}^{k+n+1}\delta^i \xrightarrow[]{\sum_{i=k+1}^{k+n+1}\delta^i = \frac{\delta^{k+1}(1-\delta^n)}{1-\delta}} 2\delta^k > 3 * \frac{\delta^{k+1}(1-\delta^n)}{1-\delta}
+            \rightarrow 2 > 3 * \frac{\delta(1-\delta^n)}{1-\delta} \xrightarrow[]{\delta = \frac{1}{2}} \\
+            2 > 3 * (1-\frac{1}{2^n}) \rightarrow \frac{1}{2^n} > \frac{1}{3} \rightarrow 3 > 2^n \rightarrow n < \log_{2}^{3} \xrightarrow[]{\text{n is natural}} n = 1 
+            $ \\\\
+            So the only way deviation works for player 1 is when n is equal to 1, otherwise it would not be rational for the player to deviate. \\
+            So for $2 \leq n$ the strategy would be stable and the players would always play (C,C)
+          \end{latin}
+\end{enumerate}
+

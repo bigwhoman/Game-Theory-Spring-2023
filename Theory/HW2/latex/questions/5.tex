@@ -1,0 +1,302 @@
+\smalltitle{سوال 5}
+\noindent
+\begin{enumerate}
+  \item \phantom{text}
+
+        \begin{latin}
+          \begin{center}
+            s = same, i = increase, e = extreamly increase
+
+
+
+            \begin{istgame}[xscale=2,font=\footnotesize]
+              \xtdistance{15mm}{20mm}
+              \istroot(0)[initial node]{P1}
+              \istb{s}[]
+              \istb{i}[]
+              \istb{e}[]
+              \endist
+              \xtdistance{18mm}{6mm}
+              \istroot(1a)(0-1)<180>{P2}
+              \istb{s}[]{}
+              \istb{i}[]{}
+              \istb{e}[]{}
+              \endist
+
+              \istroot(1b)(0-2)<0>{P2}
+              \istb{s}[]{}
+              \istb{i}[]{}
+              \istb{e}[]{}
+              \endist
+              \istroot(1c)(0-3)<0>{P2}
+              \istb{s}[]{}
+              \istb{i}[]{}
+              \istb{e}[]{}
+              \endist
+              \istroot(2a)(1a-1)<270>{(36,36)}
+              \endist
+              \istroot(2b)(1a-2)<270>{(30,40)}
+              \endist
+              \istroot(2c)(1a-3)<270>{(18,36)}
+              \endist
+              \istroot(2d)(1b-1)<270>{(40,30)}
+              \endist
+              \istroot(2e)(1b-2)<270>{(32,32)}
+              \endist
+              \istroot(2f)(1b-3)<270>{(16,24)}
+              \endist
+              \istroot(2g)(1c-1)<270>{(36,18)}
+              \endist
+              \istroot(2h)(1c-2)<270>{(24,16)}
+              \endist
+              \istroot(2i)(1c-3)<270>{(0,0)}
+              \endist
+              \xtInfoset[](1a)(1b)
+              \xtInfoset[](1b)(1c)
+              % \xtInfoset[](2a)(2b)
+              % \xtInfoset[](2b)(2c)
+              % \xtInfoset[](2e)(2d)
+              % \xtInfoset[](2e)(2f)
+              % \xtInfoset[](2g)(2h)
+              % \xtInfoset[](2h)(2i)
+            \end{istgame}
+          \end{center}
+          We know that player 1 doesn't know what player 2 plays but we know if player 1 chooses strategy e it doesn't matter because player 1's payoff will be less than strategy i.
+          \\
+          \begin{center}
+
+            \begin{istgame}[xscale=2,font=\footnotesize]
+              \xtdistance{15mm}{20mm}
+              \istroot(0)[initial node]{P1}
+              \istb{s}[]
+              \istb{i}[]
+              \endist
+              \xtdistance{18mm}{6mm}
+              \istroot(1a)(0-1)<180>{P2}
+              \istb{s}[]{}
+              \istb{i}[]{}
+              \istb{e}[]{}
+              \endist
+
+              \istroot(1b)(0-2)<0>{P2}
+              \istb{s}[]{}
+              \istb{i}[]{}
+              \istb{e}[]{}
+              \endist
+              \endist
+              \istroot(2a)(1a-1)<270>{(36,36)}
+              \endist
+              \istroot(2b)(1a-2)<270>{(30,40)}
+              \endist
+              \istroot(2c)(1a-3)<270>{(18,36)}
+              \endist
+              \istroot(2d)(1b-1)<270>{(40,30)}
+              \endist
+              \istroot(2e)(1b-2)<270>{(32,32)}
+              \endist
+              \istroot(2f)(1b-3)<270>{(16,24)}
+              \endist
+              \xtInfoset[](1a)(1b)
+            \end{istgame}
+          \end{center}
+          We also know that either strategy that Player 1 chooses, player 2 will choose strategy i.
+          \\
+          \begin{center}
+
+            \begin{istgame}[xscale=2,font=\footnotesize]
+              \xtdistance{15mm}{20mm}
+              \istroot(0)[initial node]{P1}
+              \istb{s}[]
+              \istb{i}[]
+              \endist
+              \xtdistance{18mm}{6mm}
+              \istroot(1a)(0-1)<180>{(30,40)}
+              \endist
+
+              \istroot(1b)(0-2)<0>{(32,32)}
+              \endist
+            \end{istgame}
+          \end{center}
+          So player 1 would choose strategy i.\\
+          Nash equilibrium : i,i
+        \end{latin}
+  \item \phantom{text}
+        \begin{latin} we just remove the imperfect information edge : \\
+          \begin{center}
+            s = same, i = increase, e = extreamly increase
+
+
+
+            \begin{istgame}[xscale=2,font=\footnotesize]
+              \xtdistance{15mm}{20mm}
+              \istroot(0)[initial node]{P1}
+              \istb{s}[]
+              \istb{i}[]
+              \istb{e}[]
+              \endist
+              \xtdistance{18mm}{6mm}
+              \istroot(1a)(0-1)<180>{P2}
+              \istb{s}[]{}
+              \istb{i}[]{}
+              \istb{e}[]{}
+              \endist
+
+              \istroot(1b)(0-2)<0>{P2}
+              \istb{s}[]{}
+              \istb{i}[]{}
+              \istb{e}[]{}
+              \endist
+              \istroot(1c)(0-3)<0>{P2}
+              \istb{s}[]{}
+              \istb{i}[]{}
+              \istb{e}[]{}
+              \endist
+              \istroot(2a)(1a-1)<270>{(36,36)}
+              \endist
+              \istroot(2b)(1a-2)<270>{(30,40)}
+              \endist
+              \istroot(2c)(1a-3)<270>{(18,36)}
+              \endist
+              \istroot(2d)(1b-1)<270>{(40,30)}
+              \endist
+              \istroot(2e)(1b-2)<270>{(32,32)}
+              \endist
+              \istroot(2f)(1b-3)<270>{(16,24)}
+              \endist
+              \istroot(2g)(1c-1)<270>{(36,18)}
+              \endist
+              \istroot(2h)(1c-2)<270>{(24,16)}
+              \endist
+              \istroot(2i)(1c-3)<270>{(0,0)}
+              \endist
+              % \xtInfoset[](1a)(1b)
+              % \xtInfoset[](1b)(1c)
+              % \xtInfoset[](2a)(2b)
+              % \xtInfoset[](2b)(2c)
+              % \xtInfoset[](2e)(2d)
+              % \xtInfoset[](2e)(2f)
+              % \xtInfoset[](2g)(2h)
+              % \xtInfoset[](2h)(2i)
+            \end{istgame}
+          \end{center}
+
+          now we write the strategies.
+
+          \begin{center}
+            \begin{istgame}[xscale=2,font=\footnotesize]
+              \xtdistance{15mm}{20mm}
+              \istroot(0)[initial node]{(36,18)}
+              \istb{s}[]
+              \istb{i}[]
+              \istb{e}[]
+              \endist
+              \xtdistance{18mm}{6mm}
+              \istroot(1a)(0-1)<180>{(30,40)}
+              \istb{s}[]{}
+              \istb{i}[]{}
+              \istb{e}[]{}
+              \endist
+
+              \istroot(1b)(0-2)<0>{(32,32)}
+              \istb{s}[]{}
+              \istb{i}[]{}
+              \istb{e}[]{}
+              \endist
+              \istroot(1c)(0-3)<0>{(36,18)}
+              \istb{s}[]{}
+              \istb{i}[]{}
+              \istb{e}[]{}
+              \endist
+              \istroot(2a)(1a-1)<270>{(36,36)}
+              \endist
+              \istroot(2b)(1a-2)<270>{(30,40)}
+              \endist
+              \istroot(2c)(1a-3)<270>{(18,36)}
+              \endist
+              \istroot(2d)(1b-1)<270>{(40,30)}
+              \endist
+              \istroot(2e)(1b-2)<270>{(32,32)}
+              \endist
+              \istroot(2f)(1b-3)<270>{(16,24)}
+              \endist
+              \istroot(2g)(1c-1)<270>{(36,18)}
+              \endist
+              \istroot(2h)(1c-2)<270>{(24,16)}
+              \endist
+              \istroot(2i)(1c-3)<270>{(0,0)}
+              \endist
+              % \xtInfoset[](1a)(1b)
+              % \xtInfoset[](1b)(1c)
+              % \xtInfoset[](2a)(2b)
+              % \xtInfoset[](2b)(2c)
+              % \xtInfoset[](2e)(2d)
+              % \xtInfoset[](2e)(2f)
+              % \xtInfoset[](2g)(2h)
+              % \xtInfoset[](2h)(2i)
+            \end{istgame}
+          \end{center}
+          strategy set for player 1 : (e), strategy set for player 2 : (i,s)
+        \end{latin}
+  \item \phantom{text}
+        \begin{latin}
+            It is just like the first part because in the first part also player B didn't know player A's choice.\\
+              \begin{center}
+                s = same, i = increase, e = extreamly increase
+    
+    
+    
+                \begin{istgame}[xscale=2,font=\footnotesize]
+                  \xtdistance{15mm}{20mm}
+                  \istroot(0)[initial node]{P1}
+                  \istb{s}[]
+                  \istb{i}[]
+                  \istb{e}[]
+                  \endist
+                  \xtdistance{18mm}{6mm}
+                  \istroot(1a)(0-1)<180>{P2}
+                  \istb{s}[]{}
+                  \istb{i}[]{}
+                  \istb{e}[]{}
+                  \endist
+    
+                  \istroot(1b)(0-2)<0>{P2}
+                  \istb{s}[]{}
+                  \istb{i}[]{}
+                  \istb{e}[]{}
+                  \endist
+                  \istroot(1c)(0-3)<0>{P2}
+                  \istb{s}[]{}
+                  \istb{i}[]{}
+                  \istb{e}[]{}
+                  \endist
+                  \istroot(2a)(1a-1)<270>{(36,36)}
+                  \endist
+                  \istroot(2b)(1a-2)<270>{(30,40)}
+                  \endist
+                  \istroot(2c)(1a-3)<270>{(18,36)}
+                  \endist
+                  \istroot(2d)(1b-1)<270>{(40,30)}
+                  \endist
+                  \istroot(2e)(1b-2)<270>{(32,32)}
+                  \endist
+                  \istroot(2f)(1b-3)<270>{(16,24)}
+                  \endist
+                  \istroot(2g)(1c-1)<270>{(36,18)}
+                  \endist
+                  \istroot(2h)(1c-2)<270>{(24,16)}
+                  \endist
+                  \istroot(2i)(1c-3)<270>{(0,0)}
+                  \endist
+                  \xtInfoset[](1a)(1b)
+                  \xtInfoset[](1b)(1c)
+                  % \xtInfoset[](2a)(2b)
+                  % \xtInfoset[](2b)(2c)
+                  % \xtInfoset[](2e)(2d)
+                  % \xtInfoset[](2e)(2f)
+                  % \xtInfoset[](2g)(2h)
+                  % \xtInfoset[](2h)(2i)
+                \end{istgame}
+              \end{center}
+        \end{latin}
+\end{enumerate}
+

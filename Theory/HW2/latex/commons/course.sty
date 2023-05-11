@@ -9,6 +9,8 @@
 \usepackage{listings }
 \usepackage[a4paper, total={6in, 8in}]{geometry}
 \usepackage{afterpage}
+\usepackage{tikz}
+\usepackage{pifont}
 \usepackage{amssymb}
 \usepackage{pdflscape}
 \usepackage{pifont}
@@ -18,7 +20,11 @@
 \usepackage{xepersian}
 \usepackage[T1]{fontenc}
 \usepackage{tikz}
+\usepackage{istgame}
+\usepackage{forest}
 \usepackage[utf8]{inputenc}
+\usepackage[utf8]{inputenc}
+\usepackage{adjustbox}
 \usepackage{PTSerif} 
 \usepackage{seqsplit}
 \usepackage{changepage}
@@ -33,6 +39,7 @@
 \definecolor{backcolour}{rgb}{0.95,0.95,0.92}
 \definecolor{blanchedalmond}{rgb}{1.0, 0.92, 0.8}
 \definecolor{brilliantlavender}{rgb}{0.96, 0.73, 1.0}
+\usetikzlibrary{automata, positioning}
 \settextfont[Path=fonts/,BoldFont={XB NiloofarBd.ttf}]{XB Niloofar}
 \lstdefinestyle{mystyle}{
 	backgroundcolor=\color{backcolour},   
@@ -50,16 +57,20 @@
 	showspaces=false,                
 	showstringspaces=false,
 	showtabs=false,                  
-	tabsize=2
+	tab
+	size=2
 }
-\lstset{language=C, style=mystyle}
-\newcommand{\codesample}[1]{
-	\LTR
-	\begin{latin}
-		\lstinputlisting{#1}
-	\end{latin}
-	\RTL
-}
+
+\graphicspath{{./pics/}}
+
+% \lstset{language=C, style=mystyle}
+% \newcommand{\codesample}[1]{
+% 	\LTR
+% 	\begin{latin}
+% 		\lstinputlisting{#1}
+% 	\end{latin}
+% 	\RTL
+% }
 \newcommand{\printheader}[0]{
 	\thispagestyle{fancy}
 	\fancyhf{}
@@ -67,14 +78,20 @@
 	\cfoot{\thepage}
 	\lhead{99105667}
 	\rhead{هومان کشوری}
-	\chead{تمرین 2 نظریه بازی‌ها}
+	\chead{تمرین دوم نظریه بازی‌ها}
 	\renewcommand{\headrulewidth}{2pt}
 }
+
+% \newcommnad{\courseName} {
+% 	نظریه زبان‌ها و اتوماتا
+% }
+
 \newcommand{\smalltitle}[1] {
 	\noindent \textbf{#1}
 }
 \newcommand{\codeword}[1] {
 	\lr{\texttt{\textcolor{blue}{#1}}}
 }
+
 \newcommand{\link}[2]{\href{#1}{\textcolor{blue}{#2}}}
 \newcommand{\circs}[1]{\raisebox{.5pt}{\textcircled{\raisebox{-.9pt} {#1}}}}
