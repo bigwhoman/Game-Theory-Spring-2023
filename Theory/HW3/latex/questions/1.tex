@@ -1,0 +1,37 @@
+
+\smalltitle{سوال 1}
+\begin{latin}
+    \begin{center}
+    \noindent
+    \textbf{Shoutout to Ali Safarafard for helping me out.} \\
+    \end{center}
+
+\end{latin}
+\begin{latin}
+    \noindent
+    action $a^*$ evolutionary stable iff $(a^*,a^*)$ is NE and for every action, $b$, that is a best response to $a^*$, $u(a^*,b)>u(b,b)$.
+    \\
+    Now lets see, the only strategy which could be evolutionary stable in our case would be the third strategy because $(a^*,a^*)$ need to be a NE and the only place where both strategies by player I and player II are the same and NE is (1,1).\\
+    Lets check the second condition, $u(3rd,b) > u(b,b)$, now we could see that the best response to the 3rd action is only the 3rd action so the second condition is also satisfied and we could say that \textbf{the 3rd strategy is evolutionary stable}.\\
+    Now for the mixed strategy, a mixed strategy, $\alpha$ is evolutionary stable if $(\alpha.\alpha)$ is a NE and for every strategy,$\beta$ that is a best response to $\alpha$, $u(\alpha,\beta) > u(\beta,\beta)$.
+    \\
+    Lets find a mixed strategy in our game.\\
+    $U_{II}(1st,\{p_1,p_2,p_3\}) = 3p_2$\\\\
+    $U_{II}(2nd,\{p_1,p_2,p_3\}) = p_1$\\\\
+    $U_{II}(3rd,\{p_1,p_2,p_3\}) = p_3$\\\\
+    $3p_2 = p_1 = p_3 , p_1+p_2+p_3 = 1 \rightarrow p_1=p_3 = \frac{3}{7},p_2 = \frac{1}{7}$\\\\
+    Game is symmetric so $U_{II} = U_I$. \\
+    Now we see that our mixed strategy is a NE so lets see the second condition. \\
+    $U(\beta,\beta) = U(\{p_1,p_2,p_3\},\{p_1,p_2,p_3\}) = p_2p_1+3p_1p_2+p_3^2=p_3^2+4p_1p_2$ \\\\
+    $U(\alpha,\beta) = U(\{\frac{3}{7},\frac{1}{7},\frac{3}{7}\},\{p_1,p_2,p_3\})= \frac{p_1}{7}+\frac{9p_2}{7}+\frac{p_3}{7}=\frac{1+8p_2}{7}$ \\\\
+    Now : $\frac{1+8p_2}{7} > p_3^2+4p_1p_2$, if for example $p_1\approx 0.339811, 0\leq p_2\leq 0.4438, p_3 \approx 0.0714286 (9.24264 - 14 p_2)$, then the inequality would not hold, hence the mixed strategy is \textbf{not an ESS}.
+\end{latin}
+
+
+
+
+
+
+
+
+
